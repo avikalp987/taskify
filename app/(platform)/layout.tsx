@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs"
+import { Toaster } from "sonner"
 
 // we did this so that we dont want to check on the entire site, we only want to check in some pages of the site
 const PlatformLayout = ({
@@ -8,6 +9,7 @@ const PlatformLayout = ({
 }) => {
     return (
         <ClerkProvider>
+            <Toaster />
             {children}
         </ClerkProvider>
     )
