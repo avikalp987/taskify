@@ -1,6 +1,9 @@
+"use client"
+
 import { createBoard } from "@/actions/create-board"
+import { FormInput } from "@/components/form/form-input"
+import { FormSubmit } from "@/components/form/form-submit"
 import { useAction } from "@/hooks/use-action"
-import { FormInput } from "lucide-react"
 
 export const Form = () => {
     const {
@@ -22,12 +25,19 @@ export const Form = () => {
     }
 
     return (
-        <form>
+        <form action={onSubmit}>
             <div className="flex flex-col space-y-2">
-                <FormInput errors={fieldErrors} />
+                <FormInput
+                    label="Name your board"
+                    id={"title"}
+                    errors={fieldErrors} 
+                    placeholder={"Name your board"}
+                    />
             </div>
 
-            <FormButton />
+            <FormSubmit>
+                Save
+            </FormSubmit>
         </form>
     )
 }
